@@ -4,5 +4,6 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './', // wichtig für GitHub Pages, damit Assets relativ geladen werden
+  // Wichtig für GitHub Pages
+  base: '/Google.AI.Studio_v1.23_inkl.Wappen/',
 })
