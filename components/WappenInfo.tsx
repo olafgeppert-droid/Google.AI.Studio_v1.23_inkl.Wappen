@@ -19,16 +19,17 @@ export const WappenInfo: React.FC<WappenInfoProps> = ({ onShowDatabase }) => {
 
     return (
         <div className="min-h-screen w-full flex flex-col items-center justify-center p-4 relative overflow-hidden">
-            {/* Vollflächiges Hintergrundbild */}
+            {/* Gekacheltes Hintergrundbild mit mehr Deckkraft */}
             <div
-                className="absolute inset-0 opacity-10 bg-center bg-no-repeat bg-cover"
+                className="absolute inset-0 opacity-25 bg-center bg-repeat"
                 style={{
                     backgroundImage: `url(${wappenSrc})`,
+                    backgroundSize: "200px", // Größe der Kacheln
                 }}
             ></div>
 
-            {/* Farb-Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/40 via-indigo-900/40 to-blue-900/40"></div>
+            {/* Schwächeres Farb-Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-indigo-900/20 to-blue-900/20"></div>
 
             {/* Inhalt */}
             <div className="relative w-full max-w-4xl animate-fade-in">
