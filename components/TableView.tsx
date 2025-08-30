@@ -108,7 +108,7 @@ export const TableView: React.FC<TableViewProps> = ({ people, onEdit, searchTerm
     return (
         <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg animate-fade-in">
             <h2 className="text-2xl font-bold mb-4 text-brand-primary">Personenübersicht</h2>
-            <div className="overflow-auto max-h-[65vh]">
+            <div className="overflow-auto max-h-[65vh] sm:max-h-none sm:h-screen">
                 <table className="min-w-full divide-y divide-gray-200 min-w-[1800px]">
                     <thead className="bg-gray-50 sticky top-0 z-10">
                         <tr>
