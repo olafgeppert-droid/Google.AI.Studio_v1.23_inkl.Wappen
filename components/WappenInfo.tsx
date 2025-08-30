@@ -21,7 +21,7 @@ export const WappenInfo: React.FC<WappenInfoProps> = ({ onShowDatabase }) => {
         <div className="min-h-screen w-full flex flex-col items-center justify-center p-4 relative overflow-hidden">
             {/* Gekacheltes Hintergrundbild mit mehr Deckkraft */}
             <div
-                className="absolute inset-0 opacity-25 bg-center bg-repeat"
+                className="absolute inset-0 opacity-45 bg-center bg-repeat"
                 style={{
                     backgroundImage: `url(${wappenSrc})`,
                     backgroundSize: "200px", // Größe der Kacheln
