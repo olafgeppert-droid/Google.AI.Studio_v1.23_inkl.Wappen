@@ -11,9 +11,30 @@ const DropCap: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 );
 
 export const WappenInfo: React.FC<WappenInfoProps> = ({ onShowDatabase }) => {
+    // Dynamischer Bildpfad für Wappen
+    const wappenSrc =
+        window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+            ? "/wappen.png"
+            : "https://olafgeppert-droid.github.io/Google.AI.Studio_v1.23_inkl.Wappen/wappen.png";
+
     return (
-        <div className="min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-br from-purple-400 via-indigo-500 to-blue-600 p-4">
-            <div className="w-full max-w-4xl animate-fade-in">
+        <div className="min-h-screen w-full flex flex-col items-center justify-center p-4 relative overflow-hidden">
+            {/* Kachel-Hintergrund */}
+            <div
+                className="absolute inset-0 opacity-10"
+                style={{
+                    backgroundImage: `url(${wappenSrc})`,
+                    backgroundRepeat: "repeat",
+                    backgroundSize: "200px 200px",
+                    backgroundPosition: "center",
+                }}
+            ></div>
+
+            {/* Farb-Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/50 via-indigo-900/50 to-blue-900/50"></div>
+
+            {/* Inhalt */}
+            <div className="relative w-full max-w-4xl animate-fade-in">
                 <div className="w-full max-w-sm mx-auto text-center mb-6">
                     <button
                         onClick={onShowDatabase}
@@ -22,23 +43,15 @@ export const WappenInfo: React.FC<WappenInfoProps> = ({ onShowDatabase }) => {
                         ZUR DATENBANK
                     </button>
                 </div>
-
-                {/* Bild des Wappens */}
-                <div className="flex justify-center mb-8">
-                    <img
-                        src={`${import.meta.env.BASE_URL}wappen.png`}
-                        alt="Familienwappen Geppert"
-                        className="max-h-64 object-contain drop-shadow-2xl"
-                    />
-                </div>
-
                 <div className="p-1.5 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-xl shadow-2xl">
-                    <div className="bg-[#FDF5E6] p-8 sm:p-12 rounded-lg font-serif text-lg text-stone-800 leading-relaxed">
+                    <div className="bg-[#FDF5E6]/95 p-8 sm:p-12 rounded-lg font-serif text-lg text-stone-800 leading-relaxed backdrop-blur-sm">
                         <h2 className="text-4xl font-bold text-center text-brand-dark mb-4 font-gothic">
                             Blasonierung zum Wappen der Familie Geppert
                         </h2>
                         <p className="text-center mb-8">
-                            In Blau ein silberner Leistenschragen, überdeckt von einem goldenen Steigbügel. Auf dem blau-golden bewulsteten Helm mit blau-goldenen Decken eine liegende goldene Mondsichel. Deren Höhlung zu einem Kreuzchen ausgezogen und die Spitzen mit je einem silbernen Stern besteckt.
+                            In Blau ein silberner Leistenschragen, überdeckt von einem goldenen Steigbügel. 
+                            Auf dem blau-golden bewulsteten Helm mit blau-goldenen Decken eine liegende goldene Mondsichel. 
+                            Deren Höhlung zu einem Kreuzchen ausgezogen und die Spitzen mit je einem silbernen Stern besteckt.
                         </p>
 
                         <h2 className="text-4xl font-bold text-center text-brand-dark mt-12 mb-4 font-gothic">
@@ -47,22 +60,31 @@ export const WappenInfo: React.FC<WappenInfoProps> = ({ onShowDatabase }) => {
 
                         <div className="space-y-6 text-justify">
                             <p>
-                                <DropCap>D</DropCap>ie beiden sechsstrahligen Sterne auf der Helmzier repräsentieren Vater sowie Mutter der wappenführenden Person aus der Familie Geppert und fungieren zugleich als glückbringende Symbole für den Wappenführer.
+                                <DropCap>D</DropCap>ie beiden sechsstrahligen Sterne auf der Helmzier repräsentieren Vater sowie Mutter 
+                                der wappenführenden Person aus der Familie Geppert und fungieren zugleich als glückbringende Symbole 
+                                für den Wappenführer.
                             </p>
                             <p>
-                                <DropCap>D</DropCap>er Halbmond mit Innenkreuz als Helmzier eines Stechhelms erinnert an die Brustzier des niederschlesischen Adlers und somit an die Stammheimat der Familie.
+                                <DropCap>D</DropCap>er Halbmond mit Innenkreuz als Helmzier eines Stechhelms erinnert an die Brustzier 
+                                des niederschlesischen Adlers und somit an die Stammheimat der Familie.
                             </p>
                             <p>
-                                <DropCap>D</DropCap>as silberne Schrägkreuz X im Schild trägt in der germanischen Runenschrift den Lautwert „<span className="font-semibold">G</span>“ und steht somit als Initial des Familiennamens <span className="text-xl">G</span>eppert.
+                                <DropCap>D</DropCap>as silberne Schrägkreuz X im Schild trägt in der germanischen Runenschrift den Lautwert 
+                                „<span className="font-semibold">G</span>“ und steht somit als Initial des Familiennamens 
+                                <span className="text-xl">G</span>eppert.
                             </p>
                             <p>
-                                <DropCap>D</DropCap>er goldene Steigbügel - hier in einer alten Form - symbolisiert die Pferde- und Reitertradition der Ahnen im Mannesstamm auf eigenem Gutshof in Schlesien.
+                                <DropCap>D</DropCap>er goldene Steigbügel - hier in einer alten Form - symbolisiert die Pferde- und 
+                                Reitertradition der Ahnen im Mannesstamm auf eigenem Gutshof in Schlesien.
                             </p>
                             <p>
-                                <DropCap>D</DropCap>ie früher wertvolle Farbe Blau innerhalb des Wappens assoziiert der Stifter mit einer Farbsymbolik für die Begriffe Freiheit, Harmonie, Hoffnung, Treue, Unabhängigkeit, Verstand und Vertrauen.
+                                <DropCap>D</DropCap>ie früher wertvolle Farbe Blau innerhalb des Wappens assoziiert der Stifter mit einer 
+                                Farbsymbolik für die Begriffe Freiheit, Harmonie, Hoffnung, Treue, Unabhängigkeit, Verstand und Vertrauen.
                             </p>
                             <p>
-                                <DropCap>D</DropCap>ie Devise unterhalb des Wappens lautet „Memento Radicum Tuarum“, lateinisch für „Erinnere dich an deine Wurzeln“. Der Wahlspruch fordert die Familienmitglieder auf, sich ihre Familienwurzeln zu vergegenwärtigen und zusammenzuhalten, wo immer ihr Lebensweg sie hinträgt.
+                                <DropCap>D</DropCap>ie Devise unterhalb des Wappens lautet „Memento Radicum Tuarum“, lateinisch für 
+                                „Erinnere dich an deine Wurzeln“. Der Wahlspruch fordert die Familienmitglieder auf, sich ihre Familienwurzeln 
+                                zu vergegenwärtigen und zusammenzuhalten, wo immer ihr Lebensweg sie hinträgt.
                             </p>
                         </div>
 
