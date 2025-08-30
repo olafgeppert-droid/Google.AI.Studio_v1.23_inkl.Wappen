@@ -19,19 +19,16 @@ export const WappenInfo: React.FC<WappenInfoProps> = ({ onShowDatabase }) => {
 
     return (
         <div className="min-h-screen w-full flex flex-col items-center justify-center p-4 relative overflow-hidden">
-            {/* Kachel-Hintergrund */}
+            {/* Vollflächiges Hintergrundbild */}
             <div
-                className="absolute inset-0 opacity-10"
+                className="absolute inset-0 opacity-10 bg-center bg-no-repeat bg-cover"
                 style={{
                     backgroundImage: `url(${wappenSrc})`,
-                    backgroundRepeat: "repeat",
-                    backgroundSize: "200px 200px",
-                    backgroundPosition: "center",
                 }}
             ></div>
 
             {/* Farb-Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/50 via-indigo-900/50 to-blue-900/50"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/40 via-indigo-900/40 to-blue-900/40"></div>
 
             {/* Inhalt */}
             <div className="relative w-full max-w-4xl animate-fade-in">
@@ -48,6 +45,17 @@ export const WappenInfo: React.FC<WappenInfoProps> = ({ onShowDatabase }) => {
                         <h2 className="text-4xl font-bold text-center text-brand-dark mb-4 font-gothic">
                             Blasonierung zum Wappen der Familie Geppert
                         </h2>
+
+                        {/* Wappen unter der Überschrift */}
+                        <div className="flex justify-center mb-8">
+                            <img
+                                src={wappenSrc}
+                                alt="Familienwappen"
+                                className="h-48 w-auto drop-shadow-xl"
+                                onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                            />
+                        </div>
+
                         <p className="text-center mb-8">
                             In Blau ein silberner Leistenschragen, überdeckt von einem goldenen Steigbügel. 
                             Auf dem blau-golden bewulsteten Helm mit blau-goldenen Decken eine liegende goldene Mondsichel. 
