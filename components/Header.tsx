@@ -6,20 +6,29 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ version, color }) => {
+    // Dynamisch den Bildpfad setzen
+    const wappenSrc =
+        window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+            ? "/wappen.png"
+            : "https://olafgeppert-droid.github.io/Google.AI.Studio_v1.23_inkl.Wappen/wappen.png";
+
     return (
-        <header 
-            style={{ backgroundColor: color }} 
+        <header
+            style={{ backgroundColor: color }}
             className="text-white shadow-md relative z-20 print:hidden p-2 sm:p-3"
         >
-            <div className="flex justify-center items-center w-full gap-12">
+            <div className="flex justify-center items-center w-full gap-4 sm:gap-8">
                 {/* Linkes Wappen */}
-                <img 
-                    src="/wappen.png" 
-                    alt="Familienwappen links" 
+                <img
+                    src={wappenSrc}
+                    alt="Familienwappen"
                     className="h-12 sm:h-16 w-auto"
+                    onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                    }}
                 />
 
-                {/* Überschrift */}
+                {/* Überschrift + Version */}
                 <div className="text-center">
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
                         Wappenringe der Familie GEPPERT
@@ -30,10 +39,13 @@ export const Header: React.FC<HeaderProps> = ({ version, color }) => {
                 </div>
 
                 {/* Rechtes Wappen */}
-                <img 
-                    src="/wappen.png" 
-                    alt="Familienwappen rechts" 
+                <img
+                    src={wappenSrc}
+                    alt="Familienwappen"
                     className="h-12 sm:h-16 w-auto"
+                    onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                    }}
                 />
             </div>
         </header>
