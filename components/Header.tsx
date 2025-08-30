@@ -15,7 +15,10 @@ export const Header: React.FC<HeaderProps> = ({ version, color }) => {
     return (
         <header
             style={{ backgroundColor: color }}
-            className="text-white shadow-md relative z-20 print:flex p-2 sm:p-3"
+            className="
+                text-white shadow-md z-20 print:flex p-2 sm:p-3
+                relative sm:sticky sm:top-0
+            "
         >
             <div className="flex justify-center items-center w-full gap-4 sm:gap-8">
                 {/* Linkes Wappen */}
